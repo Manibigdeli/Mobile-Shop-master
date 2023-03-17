@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AccessoriesModel } from '../accessories.model';
 import { AccessoriesService } from '../accessories.service';
 
@@ -9,7 +9,7 @@ import { AccessoriesService } from '../accessories.service';
   styleUrls: ['./accessories-detail.component.css']
 })
 export class AccessoriesDetailComponent implements OnInit{
-  constructor(private route:ActivatedRoute ,private acssService:AccessoriesService){}
+  constructor(private route:ActivatedRoute ,private acssService:AccessoriesService , private router:Router){}
 
   accessories:AccessoriesModel 
    id:number
@@ -22,5 +22,7 @@ ngOnInit(): void {
   )
 }
 
-
+Onedit(){
+  this.router.navigate(['edit'],{relativeTo:this.route})
+}
 }

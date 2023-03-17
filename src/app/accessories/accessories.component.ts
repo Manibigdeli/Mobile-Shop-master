@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./accessories.component.css']
 })
 export class AccessoriesComponent {
-
 }

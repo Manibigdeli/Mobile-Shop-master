@@ -1,1 +1,24 @@
-<p>accessories-edit works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="form" (ngSubmit)="OnSubmit()"><br>
+            <button type="submit" class="btn btn-success">{{editmode? 'edit' : 'add'}}</button>
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="form-control" formControlName="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="description">description</label>
+                <input type="text" class="form-control" formControlName="description"  name="description">
+            </div>
+
+            <div class="form-group">
+                <label for="name">img</label>
+                <input type="text" class="form-control" formControlName="img" name="img" #img>
+            </div>
+            <div class="form-group">
+                <img [src]="img.value" >
+            </div>
+        </form>
+    </div>
+</div>
