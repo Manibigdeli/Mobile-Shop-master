@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 import { AppComponent } from './app.component';
@@ -65,6 +67,7 @@ registerLocaleData(en);
     NzIconModule,
     NzInputModule,
     NzNotificationModule,
+    MatMenuModule
     
   ],
   providers: [ShopService, { provide: NZ_I18N, useValue: en_US }],

@@ -15,7 +15,7 @@ export class AccessoriesEditComponent {
   accessori:AccessoriesModel
   editmode = false
   constructor(private route:ActivatedRoute 
-    , private accessories:AccessoriesService,){
+    , private accessories:AccessoriesService, private router:Router){
     this.route.params.subscribe(
       (param:Params)=>{
         this.id = +param['id']
@@ -26,14 +26,21 @@ export class AccessoriesEditComponent {
   }
   form:FormGroup
 private init(){
-
-
+let name = ''
+let description =''
+let img = ''
+const information = this.accessories.getid(this.id)
+if(this.editmode){
+  name = information.name
+  description = information.description
+  img =information.img
+}
 
 
   this.form = new FormGroup({
-    'name' : new FormControl(),
-    'description' : new FormControl(),
-    'img' : new FormControl()
+    'name' : new FormControl(name,Validators.required),
+    'description' : new FormControl(description,Validators.required),
+    'img' : new FormControl(img,Validators.required)
 
   })
 }
@@ -42,9 +49,18 @@ private init(){
 OnSubmit(){
   if(this.editmode){
   this.accessories.Updateaccessories(this.id , this.form.value);
+  this.OnClear()
   }else{
   this.accessories.Addnew(this.form.value)
+  this.OnClear()
   }
+  console.log(this.form)
 
+}
+
+
+OnClear(){
+  this.form.reset()
+  this.router.navigate(['/accessories'])
 }
 }
