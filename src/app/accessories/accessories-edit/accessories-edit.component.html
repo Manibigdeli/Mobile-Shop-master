@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-xs-12">
         <form [formGroup]="form" (ngSubmit)="OnSubmit()"><br>
-            <button type="submit" class="btn btn-success">{{editmode? 'edit' : 'add'}}</button> |
+            <button type="submit" class="btn btn-success">
+                <span nz-icon nzType="plus-square" nzTheme="outline"></span>
+                 {{editmode? 'edit' : 'add'}}</button> |
             <button class="btn btn-danger" (click)="OnClear()">Clear</button>
             <div class="form-group">
                 <label for="name">name</label>

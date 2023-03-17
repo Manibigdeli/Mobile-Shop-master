@@ -14,7 +14,6 @@ const Route:Routes = [
        {path:':id' , component:ShopDetailComponent},
        {path:':id/edit' , component:EditComponent}
     ]},
-    
    {path:'auth' , component:AuthComponent},
    {path:'accessories' , component:AccessoriesComponent,children:[
     {path:'new',component:AccessoriesEditComponent},

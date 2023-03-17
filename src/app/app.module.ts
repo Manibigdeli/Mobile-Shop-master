@@ -34,6 +34,7 @@ import { AccessoriesListComponent } from './accessories/accessories-list/accesso
 import { AccessoriesDetailComponent } from './accessories/accessories-detail/accessories-detail.component';
 import { AccessoriesEditComponent } from './accessories/accessories-edit/accessories-edit.component';
 
+
 registerLocaleData(en);
 
 
@@ -52,6 +53,7 @@ registerLocaleData(en);
     AccessoriesListComponent,
     AccessoriesDetailComponent,
     AccessoriesEditComponent,
+   
   ],
   imports: [
     BrowserModule,

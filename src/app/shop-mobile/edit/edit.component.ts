@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute , Params } from '@angular/router';
+import { ActivatedRoute , Params, Router } from '@angular/router';
 import { ShopService } from '../shop.service';
 
 @Component({
@@ -10,7 +10,8 @@ import { ShopService } from '../shop.service';
 })
 export class EditComponent {
 
-  constructor(private ShopService:ShopService , private route:ActivatedRoute){
+  constructor(private ShopService:ShopService , private route:ActivatedRoute,
+    private router:Router){
     this.route.params.subscribe(
      (params:Params)=>{
        this.id = +params['id']
@@ -51,12 +52,18 @@ export class EditComponent {
 
 OnSubmit(){
 if(this.editmode){
- this.ShopService.Updateitem(this.id , this.form.value)
+ this.ShopService.Updateitem(this.id , this.form.value);
+ this.OnClare()
 }else{
   this.ShopService.Add(this.form.value);
-  this.form.reset()
+  this.OnClare()
 }
 console.log(this.form)
+}
+
+OnClare(){
+  this.form.reset()
+  this.router.navigate(['/shop'])
 }
 
 
