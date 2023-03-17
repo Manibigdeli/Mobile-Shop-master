@@ -1,0 +1,10 @@
+<a style="cursor: pointer;"
+ class="list-group-item clearfix" [routerLink]="id" routerLink="active">
+    <div class="pull-left">
+        <h3 class="list-group-item-heading">{{accessories.name}}</h3>
+        <p class="list-group-item-text">{{accessories.description}}</p>
+    </div>
+    <div class="pull-right">
+        <img [src]="accessories.img"  style="max-height: 100px;">
+    </div>
+</a>

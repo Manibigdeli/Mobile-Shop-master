@@ -1,0 +1,9 @@
+<app-shop-item *ngFor="let item of Mobile ; let index = index"
+ [id]="index"  [mobile]="item"></app-shop-item> <br>
+ <button class="btn btn-danger" (click)="HomePage()">Home Page</button> |
+<button class="btn btn-success" (click)="OnAdd()">Add Mobile</button><hr>
+<div class="row">
+    <div class="col-xs-12">
+<router-outlet></router-outlet>
+    </div>
+</div>

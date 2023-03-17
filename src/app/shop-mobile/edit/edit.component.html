@@ -1,0 +1,42 @@
+<div class="row">
+    <div  class="col-xs-12  col-md-offset-5">
+        <h3 style="color: red;">Add Or Edit</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+        <button class="btn btn-success" type="submit" >{{editmode ?'Update':'Add'}}</button>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="name">name:</label>
+                    <input type="text" id="name" class="form-control" formControlName="name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label for="img">img</label>
+                    <input type="text" id="img" class="form-control" formControlName="img" #imginput>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <img [src]="imginput.value"  class="img-responsive" style="border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <textarea formControlName="description"  class="form-control" cols="30" rows="2"></textarea>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
