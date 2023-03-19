@@ -7,6 +7,10 @@ import { AuthComponent } from "./auth/auth.component";
 import { EditComponent } from "./shop-mobile/edit/edit.component";
 import { ShopDetailComponent } from "./shop-mobile/shop-detail/shop-detail.component";
 import { ShopMobileComponent } from "./shop-mobile/shop-mobile.component";
+import { UserDetailComponent } from "./user/user-detail/user-detail.component";
+import { UserEditComponent } from "./user/user-edit/user-edit.component";
+import { UserListTableComponent } from "./user/user-list-table/user-list-table.component";
+import { UserComponent } from "./user/user.component";
 const Route:Routes = [
     {path:'' , redirectTo:'/shop' ,pathMatch:'full'},
     {path:'shop' , component:ShopMobileComponent,children:[
@@ -15,6 +19,15 @@ const Route:Routes = [
        {path:':id/edit' , component:EditComponent}
     ]},
    {path:'auth' , component:AuthComponent},
+   
+   
+   {path:'user' , component:UserComponent,children:[
+    {path:'new' , component:UserEditComponent},
+    {path:':id', component:UserDetailComponent},
+    {path:':id/edit' , component:UserEditComponent}
+   ]},
+   {path:'user-table' , component:UserListTableComponent},
+
    {path:'accessories' , component:AccessoriesComponent,children:[
     {path:'new',component:AccessoriesEditComponent},
     {path:':id' , component:AccessoriesDetailComponent},

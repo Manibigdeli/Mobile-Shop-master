@@ -1,0 +1,36 @@
+<nz-table #colSpanTable [nzData]="listOfData" nzBordered>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>username</th>
+        <th colspan="1">phone-number</th>
+        <th>family</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of colSpanTable.data; index as i">
+        <td>{{ data.name }}</td>
+        <ng-container [ngSwitch]="i">
+          <ng-container *ngSwitchCase="2">
+            <td>{{ data.username }}</td>
+            <td rowspan="1">{{ data.phonenumber }}</td>
+            <td>{{ data.phone }}</td>
+            <td>{{ data.family }}</td>
+          </ng-container>
+          <ng-container *ngSwitchCase="3">
+            <td>{{ data.username }}</td>
+            <td>{{ data.phonenumber }}</td>
+            <td>{{ data.family }}</td>
+          </ng-container>
+          <ng-container *ngSwitchCase="4">
+            <td colspan="5">{{ data.username }}</td>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <td>{{ data.username }}</td>
+            <td>{{ data.phonenumber }}</td>
+            <td>{{ data.family }}</td>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </tbody>
+  </nz-table>

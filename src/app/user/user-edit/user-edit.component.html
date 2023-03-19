@@ -1,0 +1,30 @@
+<div class="row" style="margin: 10px;">
+    <div class="col-xs-12">
+        <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+            <div class="row">
+                <div class="col-xs-4">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control"  name="username" formControlName="username">
+                </div>
+                <div class="col-xs-4">
+                    <label for="name">name</label>
+                    <input type="text" class="form-control"  name="name" formControlName="name">
+                </div>
+                <div class="col-xs-4">
+                    <label for="family">family</label>
+                    <input type="text" class="form-control"  name="family" formControlName="family">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-6">
+                    <label for="phonenumber">phone number</label>
+                    <input type="text" class="form-control" name="phonenumber" formControlName="phonenumber">
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Submit</button> |
+            <button class="btn btn-danger"  type="button">{{editmode ? 'Add' :'Update'}}</button>
+        </form>
+    </div>
+</div>

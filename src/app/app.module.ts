@@ -9,6 +9,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 
 
@@ -33,6 +35,12 @@ import { AccessoriesItemComponent } from './accessories/accessories-item/accesso
 import { AccessoriesListComponent } from './accessories/accessories-list/accessories-list.component';
 import { AccessoriesDetailComponent } from './accessories/accessories-detail/accessories-detail.component';
 import { AccessoriesEditComponent } from './accessories/accessories-edit/accessories-edit.component';
+import { UserComponent } from './user/user.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { UserItemComponent } from './user/user-item/user-item.component';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserListTableComponent } from './user/user-list-table/user-list-table.component';
 
 
 registerLocaleData(en);
@@ -53,11 +61,18 @@ registerLocaleData(en);
     AccessoriesListComponent,
     AccessoriesDetailComponent,
     AccessoriesEditComponent,
+    UserComponent,
+    UserDetailComponent,
+    UserItemComponent,
+    UserEditComponent,
+    UserListComponent,
+    UserListTableComponent,
    
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    MatTableModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatIconModule,
@@ -69,7 +84,9 @@ registerLocaleData(en);
     NzIconModule,
     NzInputModule,
     NzNotificationModule,
-    MatMenuModule
+    MatMenuModule,
+    NzTableModule
+
     
   ],
   providers: [ShopService, { provide: NZ_I18N, useValue: en_US }],
