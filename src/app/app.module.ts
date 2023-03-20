@@ -12,6 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -88,7 +89,8 @@ registerLocaleData(en);
     NzNotificationModule,
     MatMenuModule,
     NzTableModule,
-    NzAvatarModule
+    NzAvatarModule,
+    MatProgressBarModule
 
     
   ],
