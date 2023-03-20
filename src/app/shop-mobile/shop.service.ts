@@ -2,6 +2,8 @@ import { Subject } from "rxjs";
 import { MobileModel } from "./mobile.model";
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { ShoppingListModel } from "../shopping-list/list-model";
 
 @Injectable()
 export class ShopService{
@@ -14,7 +16,7 @@ export class ShopService{
     ]
     // private Mobile:MobileModel[] = []
 
-    constructor(private http:HttpClient){}
+    constructor(private http:HttpClient , private Shoppinlist:ShoppingListService){}
    
    updateitem(item:MobileModel[]){
     this.Mobile = item;
@@ -44,5 +46,10 @@ export class ShopService{
     Updateitem(index:number , newitem:MobileModel){
     this.Mobile[index] = newitem;
     this.ItemChange.next(this.Mobile.slice())
+    }
+
+    AddtoShoppinglist(list:ShoppingListModel){
+    this.Shoppinlist.AddShoppinglist(list)
+      
     }
 }

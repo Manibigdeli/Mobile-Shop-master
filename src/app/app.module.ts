@@ -44,6 +44,7 @@ import { UserItemComponent } from './user/user-item/user-item.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserListTableComponent } from './user/user-list-table/user-list-table.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 
 registerLocaleData(en);
@@ -70,6 +71,7 @@ registerLocaleData(en);
     UserEditComponent,
     UserListComponent,
     UserListTableComponent,
+    ShoppingListComponent,
    
   ],
   imports: [

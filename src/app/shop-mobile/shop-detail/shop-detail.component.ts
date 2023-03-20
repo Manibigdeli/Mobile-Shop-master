@@ -25,4 +25,9 @@ ngOnInit(): void {
 Onedit(){
 this.router.navigate(['edit'],{relativeTo:this.route})
 }
+
+OnAddToShopinglist(){
+  this.ShopService.AddtoShoppinglist(this.shop)
+
+}
 }
