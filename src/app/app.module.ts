@@ -11,6 +11,8 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+
 
 
 
@@ -85,7 +87,8 @@ registerLocaleData(en);
     NzInputModule,
     NzNotificationModule,
     MatMenuModule,
-    NzTableModule
+    NzTableModule,
+    NzAvatarModule
 
     
   ],

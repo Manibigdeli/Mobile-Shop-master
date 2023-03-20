@@ -1,0 +1,10 @@
+<a style="cursor: pointer;"
+ class="list-group-item clearfix" [routerLink]="id" routerLink="active">
+    <div class="pull-left">
+        <h1 class="list-group-item-heading">{{user.name}} | <nz-avatar [nzShape]="'square'" [nzSize]="'large'" [nzIcon]="'user'"></nz-avatar></h1>
+        <p class="list-group-item-text">{{user.username}}</p>
+    </div>
+    <div class="pull-right">
+        <h2 class="list-group-item-text"><span nz-icon nzType="phone" nzTheme="outline"></span>{{user.phonenumber}}</h2>
+    </div>
+</a>

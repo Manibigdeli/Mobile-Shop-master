@@ -10,7 +10,7 @@ import { USerModel } from '../user.model';
 export class UserItemComponent {
  @Input() id:number
  @Input()  user:USerModel
- constructor(private router:Router , private route :ActivatedRoute){}
+ constructor(){}
 
 
 

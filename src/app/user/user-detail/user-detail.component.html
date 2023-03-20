@@ -1,1 +1,19 @@
-<p>user-detail works!</p>
+<div class="row">
+    <div class="col-md-6">
+        <button (click)="Onedit()" class="btn btn-danger">
+            <span nz-icon nzType="edit" nzTheme="outline">
+            </span>edit</button>
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h1>Your Username : {{user.username}}</h1>
+            </li>
+            <li class="list-group-item">
+              Phone Number:   {{user.phonenumber}}
+            </li>
+        </ul>
+    </div>
+</div>

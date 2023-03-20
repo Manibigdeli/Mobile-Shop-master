@@ -13,6 +13,11 @@ export class USerService{
 
     getuser(){
        return this.user.slice()
+       
+    }
+
+    UpdateUserList(){
+     return this.change.next(this.user.slice())
     }
 
 
