@@ -7,10 +7,7 @@ export class ShoppingListService{
     shoppinglistchange = new Subject<ShoppingListModel[]>()
 
 
-    private list : ShoppingListModel[] = [
-        new ShoppingListModel('ip 14' , '' , 'mani test item')
-        
-    ]
+    private list : ShoppingListModel[] = []
 
 
     getlist(){
@@ -23,5 +20,7 @@ export class ShoppingListService{
 
 
     }
+
+   
 
 }

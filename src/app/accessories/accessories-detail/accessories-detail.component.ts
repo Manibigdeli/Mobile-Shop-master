@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { AccessoriesModel } from '../accessories.model';
 import { AccessoriesService } from '../accessories.service';
 
@@ -9,7 +10,10 @@ import { AccessoriesService } from '../accessories.service';
   styleUrls: ['./accessories-detail.component.css']
 })
 export class AccessoriesDetailComponent implements OnInit{
-  constructor(private route:ActivatedRoute ,private acssService:AccessoriesService , private router:Router){}
+  constructor(private route:ActivatedRoute 
+    ,private acssService:AccessoriesService 
+    , private router:Router,
+    private ShoppinlistService:ShoppingListService){}
 
   accessories:AccessoriesModel 
    id:number
@@ -24,5 +28,9 @@ ngOnInit(): void {
 
 Onedit(){
   this.router.navigate(['edit'],{relativeTo:this.route})
+}
+//Adding list
+OnAddToShoppingList(){
+this.acssService.AddtoShoppinlist(this.accessories)
 }
 }

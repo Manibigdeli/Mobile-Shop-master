@@ -10,7 +10,9 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit{
 list : ShoppingListModel[]
+
 constructor(private shoppinglist:ShoppingListService){}
+
 ngOnInit(): void {
   this.list = this.shoppinglist.getlist()
 }

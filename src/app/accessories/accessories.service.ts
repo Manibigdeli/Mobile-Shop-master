@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { AccessoriesModel } from "./accessories.model";
 
 
@@ -30,5 +31,9 @@ export class AccessoriesService{
     Updateaccessories(index:number , newaccessories:AccessoriesModel){
         this.accessories[index] = newaccessories
         this.itemchange.next(this.accessories.slice())
+    }
+constructor(private shoppinlist:ShoppingListService){}
+    AddtoShoppinlist(accessories:AccessoriesModel){
+        this.shoppinlist.AddShoppinglist(accessories)
     }
 }
