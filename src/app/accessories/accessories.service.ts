@@ -32,7 +32,8 @@ export class AccessoriesService{
         this.accessories[index] = newaccessories
         this.itemchange.next(this.accessories.slice())
     }
-constructor(private shoppinlist:ShoppingListService){}
+    constructor(private shoppinlist:ShoppingListService){}
+    
     AddtoShoppinlist(accessories:AccessoriesModel){
         this.shoppinlist.AddShoppinglist(accessories)
     }

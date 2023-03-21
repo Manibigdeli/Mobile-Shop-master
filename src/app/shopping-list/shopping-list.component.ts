@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MobileModel } from '../shop-mobile/mobile.model';
 import { ShoppingListModel } from './list-model';
 import { ShoppingListService } from './shopping-list.service';
 
@@ -10,10 +9,15 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit{
 list : ShoppingListModel[]
+id:number
 
 constructor(private shoppinglist:ShoppingListService){}
 
 ngOnInit(): void {
   this.list = this.shoppinglist.getlist()
+}
+
+Ondelete(){
+this.shoppinglist.Ondelete(this.id)
 }
 }

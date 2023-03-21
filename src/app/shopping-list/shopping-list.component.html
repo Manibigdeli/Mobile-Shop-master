@@ -2,9 +2,14 @@
     <div class="col-xs-12">
         <ul class="list-group">
             <a  class="list-group-item" 
-            style="cursor: pointer;" *ngFor="let item of list; let id = index">
+            style="cursor: pointer;" *ngFor="let item of list; let index = index">
                 {{item.name}}  |  ({{item.description}}) |<img [src]="item.img" alt="">
-            </a>
+                <div class="pull-right">
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+               </div>
+            </a>   
         </ul>
     </div>
 </div>

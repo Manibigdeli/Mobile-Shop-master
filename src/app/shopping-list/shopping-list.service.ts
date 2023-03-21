@@ -5,6 +5,7 @@ import { ShoppingListModel } from "./list-model";
 @Injectable({providedIn:'root'})
 export class ShoppingListService{
     shoppinglistchange = new Subject<ShoppingListModel[]>()
+    id:number
 
 
     private list : ShoppingListModel[] = []
@@ -19,6 +20,11 @@ export class ShoppingListService{
         this.shoppinglistchange.next(this.list.slice())
 
 
+    }
+
+    Ondelete(index:number){
+    this.list.splice(index , 1),
+    this.shoppinglistchange.next(this.list.slice())
     }
 
    
