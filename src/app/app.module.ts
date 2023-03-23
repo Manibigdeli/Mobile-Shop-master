@@ -48,6 +48,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingListStartComponent } from './shopping-list/shopping-list-start/shopping-list-start.component';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/shopping-list-item.component';
+import { ShoppingListViewComponent } from './shopping-list/shopping-list-view/shopping-list-view.component';
 
 
 registerLocaleData(en);
@@ -78,6 +79,7 @@ registerLocaleData(en);
     ShoppingListStartComponent,
     ShoppingListEditComponent,
     ShoppingListItemComponent,
+    ShoppingListViewComponent,
    
   ],
   imports: [

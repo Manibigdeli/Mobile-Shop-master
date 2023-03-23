@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ShoppingListModel } from './list-model';
 import { ShoppingListService } from './shopping-list.service';
 
@@ -15,9 +16,10 @@ constructor(private shoppinglist:ShoppingListService){}
 
 ngOnInit(): void {
   this.list = this.shoppinglist.getlist()
-}
-
-Ondelete(){
-this.shoppinglist.Ondelete(this.id)
+  this.shoppinglist.shoppinglistchange.subscribe(
+    (item : ShoppingListModel[])=>{
+      this.list = item
+    }
+  )
 }
 }

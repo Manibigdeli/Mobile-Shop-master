@@ -23,8 +23,8 @@ export class ShoppingListService{
     }
 
     Ondelete(index:number){
-    this.list.splice(index , 1),
-    this.shoppinglistchange.next(this.list.slice())
+   this.list.splice(index , 1)
+   this.shoppinglistchange.next(this.list.slice())
     }
 
 

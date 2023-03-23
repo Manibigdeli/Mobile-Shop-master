@@ -9,6 +9,7 @@ import { ShopDetailComponent } from "./shop-mobile/shop-detail/shop-detail.compo
 import { ShopMobileComponent } from "./shop-mobile/shop-mobile.component";
 import { ShoppingListEditComponent } from "./shopping-list/shopping-list-edit/shopping-list-edit.component";
 import { ShoppingListStartComponent } from "./shopping-list/shopping-list-start/shopping-list-start.component";
+import { ShoppingListViewComponent } from "./shopping-list/shopping-list-view/shopping-list-view.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { UserDetailComponent } from "./user/user-detail/user-detail.component";
 import { UserEditComponent } from "./user/user-edit/user-edit.component";
@@ -32,7 +33,7 @@ const Route:Routes = [
    {path:'user-table' , component:UserListTableComponent},
    
    {path:'shopping-list' , component:ShoppingListComponent,children:[
-    {path:':id' , component:ShoppingListComponent},
+    {path:':id' , component:ShoppingListViewComponent},
     {path:':id/edit' , component:ShoppingListEditComponent}
 
    ]},
