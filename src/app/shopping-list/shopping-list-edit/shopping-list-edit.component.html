@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="listform" (ngSubmit)="Onsub()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label for="name">name :</label>
+                            <input type="text" class="form-control" formControlName="name">
+                        </div>
+                        <div class="col-xs-4">
+                            <label for="name">description :</label>
+                            <input type="text" class="form-control" formControlName="description">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">{{editmode ? 'edit' : 'Add'}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

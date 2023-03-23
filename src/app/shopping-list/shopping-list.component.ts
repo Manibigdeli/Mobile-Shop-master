@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingListModel } from './list-model';
 import { ShoppingListService } from './shopping-list.service';
 
@@ -8,8 +8,8 @@ import { ShoppingListService } from './shopping-list.service';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit{
-list : ShoppingListModel[]
-id:number
+ list : ShoppingListModel[]
+ id:number
 
 constructor(private shoppinglist:ShoppingListService){}
 

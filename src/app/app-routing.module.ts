@@ -7,6 +7,8 @@ import { AuthComponent } from "./auth/auth.component";
 import { EditComponent } from "./shop-mobile/edit/edit.component";
 import { ShopDetailComponent } from "./shop-mobile/shop-detail/shop-detail.component";
 import { ShopMobileComponent } from "./shop-mobile/shop-mobile.component";
+import { ShoppingListEditComponent } from "./shopping-list/shopping-list-edit/shopping-list-edit.component";
+import { ShoppingListStartComponent } from "./shopping-list/shopping-list-start/shopping-list-start.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { UserDetailComponent } from "./user/user-detail/user-detail.component";
 import { UserEditComponent } from "./user/user-edit/user-edit.component";
@@ -28,7 +30,12 @@ const Route:Routes = [
     {path:':id/edit' , component:UserEditComponent}
    ]},
    {path:'user-table' , component:UserListTableComponent},
-   {path:'shopping-list' , component:ShoppingListComponent},
+   
+   {path:'shopping-list' , component:ShoppingListComponent,children:[
+    {path:':id' , component:ShoppingListComponent},
+    {path:':id/edit' , component:ShoppingListEditComponent}
+
+   ]},
 
    {path:'accessories' , component:AccessoriesComponent,children:[
     {path:'new',component:AccessoriesEditComponent},

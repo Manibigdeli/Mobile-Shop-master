@@ -27,6 +27,18 @@ export class ShoppingListService{
     this.shoppinglistchange.next(this.list.slice())
     }
 
-   
 
+     getindex(index:number){
+     return this.list[index]
+     }
+
+
+     editlist(index : number , newlist : ShoppingListModel){
+        this.list[index] = newlist
+        this.shoppinglistchange.next(this.list.slice())
+     }   
+     Addlist(list : ShoppingListModel){
+        this.list.push(list);
+        this.shoppinglistchange.next(this.list.slice())
+     }
 }
