@@ -38,12 +38,27 @@ SignIn(email:string , password:string){
 private Auth(email:string , idToken:string , expiresIn: number , id:string){
 const Expirationdate = new Date(new Date().getTime() + +expiresIn * 1000 )
 const newuser = new UserModel(email , idToken , id , Expirationdate )
-this.user.next(newuser)
+this.user.next(newuser);
+localStorage.setItem('log',JSON.stringify(newuser))
 }
 
 logout(){
   this.user.next(null);
   this.router.navigate(['/shop'])
+}
+
+autologin(){
+  const userdata:{
+    email:string , id:string , token:string , tokenexpration:string
+  } = JSON.parse(localStorage.getItem('log'))
+  if(!userdata){
+    return
+  }
+  const NewUser = new UserModel(userdata.email,
+    userdata.id,userdata.token,new Date(userdata.tokenexpration));
+    if(userdata.token){
+      this.user.next(NewUser)
+    }
 }
 
 

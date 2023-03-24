@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 import { DataStorageServce } from './shop-mobile/data.storage.service';
 import { MobileModel } from './shop-mobile/mobile.model';
-import { ShopService } from './shop-mobile/shop.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { ShopService } from './shop-mobile/shop.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private DataStorage:DataStorageServce ,private ShopService:ShopService){}
+  constructor(private DataStorage:DataStorageServce ,private authService:AuthService){}
   itemChange = true
   mobile:MobileModel[]
   id:number
@@ -18,5 +18,7 @@ export class AppComponent implements OnInit {
       console.log(res)
      
     })
+this.authService.autologin()
+
   }
 }
