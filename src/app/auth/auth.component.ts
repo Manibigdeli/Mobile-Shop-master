@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class AuthComponent {
   LoginMode = true;
   error = false
+  isloading = false
 
  constructor(private AuthService:AuthService , private router:Router){}
 
@@ -28,18 +29,25 @@ export class AuthComponent {
 
     const email = authform.value.email;
     const password = authform.value.password;
-    let letObs$ = new Observable<any>()
-    
+    let authObs$ = new Observable<any>()
+    this.isloading
      if(this.LoginMode){
-      letObs$ = this.AuthService.SignIn(email,password);
+
+      authObs$ = this.AuthService.SignIn(email,password);
+      this.isloading = true
+
      }else{
-      letObs$ = this.AuthService.SignIn(email,password)
+
+      authObs$ = this.AuthService.SignIn(email,password);
+      this.isloading = true
+
      }
 
-     letObs$.subscribe(res=>{
+     authObs$.subscribe(res=>{
       console.log(res),
       this.router.navigate(['/shop'])
      },errormessage=>{
+      this.isloading = false
       this.error = errormessage;
       console.log(errormessage);
      })

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 import { DataStorageServce } from '../shop-mobile/data.storage.service';
 
 @Component({
@@ -6,8 +7,10 @@ import { DataStorageServce } from '../shop-mobile/data.storage.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-  constructor(private DataStorage:DataStorageServce){}
+export class HeaderComponent implements OnInit{
+  authenticated = false
+  
+  constructor(private DataStorage:DataStorageServce , private authService:AuthService){}
   OnSaveData(){
   this.DataStorage.SavingData().subscribe(
     res=>{
@@ -16,11 +19,25 @@ export class HeaderComponent {
   )
   }
 
+  ngOnInit(): void {
+    this.authService.user.subscribe(
+      user=>{
+        console.log(user)
+        this.authenticated = !!user
+      }
+    )
+  }
+
+
   LoadingData(){
     this.DataStorage.FetchingData().subscribe(
       res=>{
         console.log(res)
       }
     )
+  }
+  
+  Onlogout(){
+    this.authService.logout()
   }
 }

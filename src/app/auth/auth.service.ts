@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
 import { AuthModel } from "./auth.model";
@@ -7,7 +8,7 @@ import { UserModel } from "./user.model";
 
 @Injectable({providedIn:'root'})
 export class AuthService{
-constructor(private http:HttpClient){}
+constructor(private http:HttpClient ,private router:Router){}
 user = new BehaviorSubject<UserModel>(null)
 
 SignUp(email:string , password:string){
@@ -16,7 +17,7 @@ return this.http.post<AuthModel>
     email,
     password,
     returnSecureToken:true
-}).pipe(catchError(this.errorhandel),tap(res=>{
+}).pipe(catchError(this.errorhandeling),tap(res=>{
     this.Auth(res.email ,res.idToken , +res.expiresIn  , res.localId)
 }))}
 
@@ -27,7 +28,7 @@ SignIn(email:string , password:string){
     email:email,
     password:password,
     returnSecureToken : true
-}).pipe(catchError(this.errorhandel),tap(res=>{
+}).pipe(catchError(this.errorhandeling),tap(res=>{
     this.Auth(res.email , res.idToken , +res.expiresIn , res.localId)
 }))
 }
@@ -35,9 +36,14 @@ SignIn(email:string , password:string){
 
 
 private Auth(email:string , idToken:string , expiresIn: number , id:string){
-const ExprationDate = new Date(new Date().getTime() + +expiresIn * 1000 )
-const newuser = new UserModel(email , idToken , id , ExprationDate )
+const Expirationdate = new Date(new Date().getTime() + +expiresIn * 1000 )
+const newuser = new UserModel(email , idToken , id , Expirationdate )
 this.user.next(newuser)
+}
+
+logout(){
+  this.user.next(null);
+  this.router.navigate(['/shop'])
 }
 
 
@@ -47,9 +53,7 @@ this.user.next(newuser)
 
 
 
-
-
-private errorhandel(errorRes : HttpErrorResponse){
+private errorhandeling(errorRes : HttpErrorResponse){
     let errormessage = 'An unknow error!';
     if(!errorRes.error || !errorRes.error.error){
       return throwError(errormessage)
