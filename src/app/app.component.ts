@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AccessoriesDataStorageService } from './accessories/accessories.data.storage.service';
 import { AuthService } from './auth/auth.service';
 import { DataStorageServce } from './shop-mobile/data.storage.service';
 import { MobileModel } from './shop-mobile/mobile.model';
@@ -8,17 +10,24 @@ import { MobileModel } from './shop-mobile/mobile.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  constructor(private DataStorage:DataStorageServce ,private authService:AuthService){}
+export class AppComponent implements OnInit{
+  constructor(private DataStorage:DataStorageServce
+     ,private authService:AuthService , private data:AccessoriesDataStorageService){}
   itemChange = true
   mobile:MobileModel[]
   id:number
+
+  error:string
   ngOnInit(): void {
     this.DataStorage.FetchingData().subscribe(res=>{
       console.log(res)
      
     })
+ 
+
 this.authService.autologin()
 
   }
+
+
 }

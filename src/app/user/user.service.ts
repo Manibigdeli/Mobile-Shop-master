@@ -7,11 +7,11 @@ import { USerModel } from "./user.model";
 @Injectable({providedIn:'root'})
 export class USerService{
     change = new Subject<USerModel[]>()
-    // user : USerModel[] = [
-    //     new USerModel('@themani' , 'mani','bigdeli' , '09125411618')
-    // ]
+    user : USerModel[] = [
+        new USerModel('@themani' , 'mani','bigdeli' , '09125411618')
+    ]
 
-    user : USerModel[] = []
+    // user : USerModel[] = []
 
 
     getuser(){

@@ -13,6 +13,8 @@ import {MatTableModule} from '@angular/material/table';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+
 
 
 
@@ -53,7 +55,20 @@ import { ShoppingListViewComponent } from './shopping-list/shopping-list-view/sh
 
 registerLocaleData(en);
 
-
+const importmodule = [
+  NzDropDownModule,
+  NzIconModule,
+  NzInputModule,
+  NzNotificationModule,
+  MatMenuModule,
+  NzTableModule,
+  NzAvatarModule,
+  MatProgressBarModule,
+  NzAlertModule,
+  MatButtonModule,
+  MatIconModule,
+  MatToolbarModule,
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,25 +97,17 @@ registerLocaleData(en);
     ShoppingListViewComponent,
    
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
     MatTableModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatIconModule,
-    MatToolbarModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MatButtonModule,
-    NzDropDownModule,
-    NzIconModule,
-    NzInputModule,
-    NzNotificationModule,
-    MatMenuModule,
-    NzTableModule,
-    NzAvatarModule,
-    MatProgressBarModule
+    importmodule
+
 
     
   ],

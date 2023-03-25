@@ -1,9 +1,9 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient , HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { MobileModel } from "./mobile.model";
 import { ShopService } from "./shop.service";
-import {map, tap} from "rxjs/operators"
-import { Subject } from "rxjs";
+import {catchError, map, tap} from "rxjs/operators"
+import { Subject, throwError } from "rxjs";
 
 @Injectable({providedIn:'root'})
 export class DataStorageServce{
@@ -25,6 +25,20 @@ export class DataStorageServce{
     }
    ),tap(item =>{
     this.ShopService.set(item)
-   }))
+   })).pipe(catchError(this.errorhandle))
+  }
+
+
+
+
+  private errorhandle(res : HttpErrorResponse){
+   let errormessage = 'error not founded';
+   if(res.error || res.error.error){
+    return throwError(errormessage);
+   }
+   switch(res.error.error.message){
+    case 'HttpErrorResponse' :
+      errormessage = 'HttpErrorResponse'
+   }
   }
 }

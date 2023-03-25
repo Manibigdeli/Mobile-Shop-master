@@ -39,7 +39,7 @@ private Auth(email:string , idToken:string , expiresIn: number , id:string){
 const Expirationdate = new Date(new Date().getTime() + +expiresIn * 1000 )
 const newuser = new UserModel(email , idToken , id , Expirationdate )
 this.user.next(newuser);
-localStorage.setItem('log',JSON.stringify(newuser))
+localStorage.setItem('information',JSON.stringify(newuser))
 }
 
 logout(){
@@ -48,15 +48,15 @@ logout(){
 }
 
 autologin(){
-  const userdata:{
+  const data:{
     email:string , id:string , token:string , tokenexpration:string
-  } = JSON.parse(localStorage.getItem('log'))
-  if(!userdata){
+  } = JSON.parse(localStorage.getItem('information'))
+  if(!data){
     return
   }
-  const NewUser = new UserModel(userdata.email,
-    userdata.id,userdata.token,new Date(userdata.tokenexpration));
-    if(userdata.token){
+  const NewUser = new UserModel(data.email,
+    data.id,data.token,new Date(data.tokenexpration));
+    if(data.token){
       this.user.next(NewUser)
     }
 }
