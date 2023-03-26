@@ -1,25 +1,24 @@
 <p>
-  <mat-toolbar color="primary">
-    <a routerLink="/shop" style="text-decoration: none;">
+  <mat-toolbar color="primary" >
+    <a routerLink="/shop" style="text-decoration: none;" *ngIf="authenticated">
       <span style="color: white;">
         <span nz-icon nzType="mobile" nzTheme="outline"></span>MoboShop</span></a>
+      <div>
+        <a *ngIf="!authenticated"
+       style="color: white; text-decoration: none; margin: 20px;" routerLink="/auth"><span nz-icon nzType="user" nzTheme="outline"></span></a>
+      </div>
     <div>
-      <a  nz-dropdown style="color: white; text-decoration: none; margin: 20px;" [nzDropdownMenu]="menu">
-        <span nz-icon nzType="caret-down" nzTheme="outline"></span>
-      </a>
-      
-      <nz-dropdown-menu #menu="nzDropdownMenu">
+      <a *ngIf="authenticated"
+      nz-dropdown style="color: white; text-decoration: none; margin: 20px;" 
+      [nzDropdownMenu]="user"><span nz-icon nzType="user" nzTheme="outline"></span></a>
+      <nz-dropdown-menu #user="nzDropdownMenu" >
         <ul nz-menu nzSelectable>
-          <li nz-menu-item (click)="OnSaveData()">Save</li>
-          <li nz-menu-item (click)="LoadingData()">Load</li>
+          <li nz-menu-item (click)="Onprofile()">profile</li>
+          <li nz-menu-item (click)="LoadingData()">singout</li>
         </ul>
       </nz-dropdown-menu>
-      </div> 
-    <div>
-      <a *ngIf="!authenticated" style="color: white;" routerLink="auth"><span nz-icon nzType="user" nzTheme="outline"></span></a>
      </div>
      <a  style="text-decoration: none;margin: 20px;" routerLink="accessories"><span style="color: white;"><span nz-icon nzType="shopping-cart" nzTheme="outline"></span>accessories</span></a>
-     <a routerLink="user" style="text-decoration: none;margin: 20px;"><span style="color: white;" nz-icon nzType="solution" nzTheme="outline"></span></a>
      <a routerLink="shopping-list" style="text-decoration: none;margin: 20px;"><span style="color: white;"><span nz-icon nzType="shopping-cart" nzTheme="outline"></span>shopping-list</span></a>
 
       <a *ngIf="authenticated" (click)="Onlogout()" style="color: white; text-decoration: none;margin: 20px;"><span nz-icon nzType="logout" nzTheme="outline"></span><span>logout</span></a>

@@ -33,6 +33,7 @@ const Route:Routes = [
    {path:'user-table' , component:UserListTableComponent},
    
    {path:'shopping-list' , component:ShoppingListComponent,children:[
+    {path:'' , component:ShoppingListStartComponent},
     {path:':id' , component:ShoppingListViewComponent},
     {path:':id/edit' , component:ShoppingListEditComponent}
 

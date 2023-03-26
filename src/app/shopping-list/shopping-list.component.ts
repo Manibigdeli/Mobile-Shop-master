@@ -11,15 +11,18 @@ import { ShoppingListService } from './shopping-list.service';
 export class ShoppingListComponent implements OnInit{
  list : ShoppingListModel[]
  id:number
+ listnull = true
 
 constructor(private shoppinglist:ShoppingListService){}
 
 ngOnInit(): void {
-  this.list = this.shoppinglist.getlist()
-  this.shoppinglist.shoppinglistchange.subscribe(
-    (item : ShoppingListModel[])=>{
-      this.list = item
-    }
-  )
-}
+    this.list = this.shoppinglist.getlist()
+    this.shoppinglist.shoppinglistchange.subscribe(
+   (item : ShoppingListModel[])=>{
+        this.list = item;
+       
+  
+      }
+    )
+  }
 }

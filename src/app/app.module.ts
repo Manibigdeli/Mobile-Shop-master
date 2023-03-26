@@ -14,6 +14,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+
 
 
 
@@ -68,34 +70,38 @@ const importmodule = [
   MatButtonModule,
   MatIconModule,
   MatToolbarModule,
+  NzMessageModule
+]
+
+const components = [
+  ShopMobileComponent,
+  ShopItemComponent,
+  ShopListComponent,
+  HeaderComponent,
+  ShopDetailComponent,
+  EditComponent,
+  AuthComponent,
+  AccessoriesComponent,
+  AccessoriesItemComponent,
+  AccessoriesListComponent,
+  AccessoriesDetailComponent,
+  AccessoriesEditComponent,
+  UserComponent,
+  UserDetailComponent,
+  UserItemComponent,
+  UserEditComponent,
+  UserListComponent,
+  UserListTableComponent,
+  ShoppingListComponent,
+  ShoppingListStartComponent,
+  ShoppingListEditComponent,
+  ShoppingListItemComponent,
+  ShoppingListViewComponent,
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    ShopMobileComponent,
-    ShopItemComponent,
-    ShopListComponent,
-    HeaderComponent,
-    ShopDetailComponent,
-    EditComponent,
-    AuthComponent,
-    AccessoriesComponent,
-    AccessoriesItemComponent,
-    AccessoriesListComponent,
-    AccessoriesDetailComponent,
-    AccessoriesEditComponent,
-    UserComponent,
-    UserDetailComponent,
-    UserItemComponent,
-    UserEditComponent,
-    UserListComponent,
-    UserListTableComponent,
-    ShoppingListComponent,
-    ShoppingListStartComponent,
-    ShoppingListEditComponent,
-    ShoppingListItemComponent,
-    ShoppingListViewComponent,
-   
+    components
   ],
   
   imports: [

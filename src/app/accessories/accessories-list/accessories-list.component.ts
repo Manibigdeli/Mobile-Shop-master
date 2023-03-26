@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute,  Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AccessoriesDataStorageService } from '../accessories.data.storage.service';
 import { AccessoriesModel } from '../accessories.model';
@@ -10,7 +10,7 @@ import { AccessoriesService } from '../accessories.service';
   templateUrl: './accessories-list.component.html',
   styleUrls: ['./accessories-list.component.css']
 })
-export class AccessoriesListComponent implements OnInit{
+export class AccessoriesListComponent implements OnInit , OnDestroy{
   accessories:AccessoriesModel[];
   id:number
   error:string
@@ -19,6 +19,7 @@ export class AccessoriesListComponent implements OnInit{
      , private router :Router ,
       private route:ActivatedRoute ,
       private datastorage:AccessoriesDataStorageService){}
+
   ngOnInit(): void {
     this.accessori.itemchange.subscribe(
       (Accessories:AccessoriesModel[])=>{
@@ -51,5 +52,9 @@ export class AccessoriesListComponent implements OnInit{
 
   Onedit(){
     this.router.navigate(['new'],{relativeTo:this.route})
+  }
+
+  ngOnDestroy(): void {
+    this.fetch.unsubscribe()
   }
 }

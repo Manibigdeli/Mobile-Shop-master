@@ -5,10 +5,12 @@ import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
 import { AuthModel } from "./auth.model";
 import { UserModel } from "./user.model";
+import { NzMessageService } from 'ng-zorro-antd/message';
+
 
 @Injectable({providedIn:'root'})
 export class AuthService{
-constructor(private http:HttpClient ,private router:Router){}
+constructor(private http:HttpClient ,private router:Router,private message: NzMessageService){}
 user = new BehaviorSubject<UserModel>(null)
 
 SignUp(email:string , password:string){
@@ -44,7 +46,7 @@ localStorage.setItem('information',JSON.stringify(newuser))
 
 logout(){
   this.user.next(null);
-  this.router.navigate(['/shop'])
+  this.router.navigate(['/auth'])
 }
 
 autologin(){
@@ -86,6 +88,15 @@ private errorhandeling(errorRes : HttpErrorResponse){
   
   return throwError(errormessage)
 
+  }
+
+
+   createMessage(type: string): void {
+    this.message.create(type, 'Success login');
+  }
+
+  createMessageerror(type: string): void {
+    this.message.create(type, 'error login');
   }
 
 }

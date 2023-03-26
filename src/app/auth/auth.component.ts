@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
-import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +14,10 @@ export class AuthComponent {
   error = false
   isloading = false
 
- constructor(private AuthService:AuthService , private router:Router){}
+ constructor(private AuthService:AuthService 
+  , private router:Router,){}
+
+
 
   OnSwitch(){
   this.LoginMode = !this.LoginMode
@@ -35,18 +37,22 @@ export class AuthComponent {
 
       authObs$ = this.AuthService.SignIn(email,password);
       this.isloading = true
+     
+
 
      }else{
 
-      authObs$ = this.AuthService.SignIn(email,password);
+      authObs$ = this.AuthService.SignUp(email,password);
       this.isloading = true
 
      }
 
      authObs$.subscribe(res=>{
+      this.AuthService.createMessage('success')
       console.log(res),
       this.router.navigate(['/shop'])
      },errormessage=>{
+      this.AuthService.createMessageerror('error')
       this.isloading = false
       this.error = errormessage;
       console.log(errormessage);
