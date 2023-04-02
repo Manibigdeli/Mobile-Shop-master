@@ -45,6 +45,7 @@ localStorage.setItem('information',JSON.stringify(newuser))
 }
 
 logout(){
+  this.createMessagelogout('error')
   this.user.next(null);
   this.router.navigate(['/auth'])
 }
@@ -99,6 +100,10 @@ private errorhandeling(errorRes : HttpErrorResponse){
     this.message.create(type, 'error login');
   }
 
+  createMessagelogout(type: string): void {
+    this.message.create(type, 'log out')
+
+
 }
 
-
+}

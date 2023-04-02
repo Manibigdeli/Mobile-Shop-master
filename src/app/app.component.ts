@@ -19,14 +19,7 @@ export class AppComponent implements OnInit{
 
   error:string
   ngOnInit(): void {
-    this.DataStorage.FetchingData().subscribe(res=>{
-      console.log(res)
-     
-    })
- 
-
-this.authService.autologin()
-
+    this.authService.autologin()
   }
 
 

@@ -15,6 +15,14 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzListModule } from 'ng-zorro-antd/list';
+
+
+
+
 
 
 
@@ -53,6 +61,12 @@ import { ShoppingListStartComponent } from './shopping-list/shopping-list-start/
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/shopping-list-item.component';
 import { ShoppingListViewComponent } from './shopping-list/shopping-list-view/shopping-list-view.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentItemComponent } from './comment/comment-item/comment-item.component';
+import { CommentListComponent } from './comment/comment-list/comment-list.component';
+
+
+
 
 
 registerLocaleData(en);
@@ -70,7 +84,11 @@ const importmodule = [
   MatButtonModule,
   MatIconModule,
   MatToolbarModule,
-  NzMessageModule
+  NzMessageModule,
+  NzCommentModule,
+  NzFormModule,
+  NzButtonModule,
+  NzListModule
 ]
 
 const components = [
@@ -101,7 +119,13 @@ const components = [
 @NgModule({
   declarations: [
     AppComponent,
-    components
+    components,
+   CommentItemComponent,
+    CommentComponent,
+    CommentListComponent
+ 
+
+  
   ],
   
   imports: [

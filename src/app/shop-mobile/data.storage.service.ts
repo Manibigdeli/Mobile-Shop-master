@@ -11,6 +11,7 @@ export class DataStorageServce{
     index:number
     item:MobileModel[]
     constructor(private http:HttpClient , private ShopService:ShopService){}
+    
   SavingData(){
     const item = this.ShopService.getitem()
    return this.http.put<MobileModel>('https://login-service-7b7b5-default-rtdb.firebaseio.com/shop.json',item)
