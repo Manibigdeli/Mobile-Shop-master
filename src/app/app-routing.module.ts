@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AccessoriesDetailComponent } from "./accessories/accessories-detail/accessories-detail.component";
 import { AccessoriesEditComponent } from "./accessories/accessories-edit/accessories-edit.component";
 import { AccessoriesComponent } from "./accessories/accessories.component";
+import { AccessoriesResolver } from "./accessories/accessories.resolver.service";
 import { AuthComponent } from "./auth/auth.component";
 import { EditComponent } from "./shop-mobile/edit/edit.component";
 import { ShopDetailComponent } from "./shop-mobile/shop-detail/shop-detail.component";
@@ -41,8 +42,8 @@ const Route:Routes = [
 
    {path:'accessories' , component:AccessoriesComponent,children:[
     {path:'new',component:AccessoriesEditComponent},
-    {path:':id' , component:AccessoriesDetailComponent},
-    {path:':id/edit' , component:AccessoriesEditComponent}
+    {path:':id' , component:AccessoriesDetailComponent,resolve:[AccessoriesResolver]},
+    {path:':id/edit' , component:AccessoriesEditComponent,resolve:[AccessoriesResolver]}
    ]}
 
 
