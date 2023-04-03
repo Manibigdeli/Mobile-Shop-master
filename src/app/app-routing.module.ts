@@ -8,6 +8,7 @@ import { AuthComponent } from "./auth/auth.component";
 import { EditComponent } from "./shop-mobile/edit/edit.component";
 import { ShopDetailComponent } from "./shop-mobile/shop-detail/shop-detail.component";
 import { ShopMobileComponent } from "./shop-mobile/shop-mobile.component";
+import { ShopMobileResolver } from "./shop-mobile/shop.mobile.resolver.service";
 import { ShoppingListEditComponent } from "./shopping-list/shopping-list-edit/shopping-list-edit.component";
 import { ShoppingListStartComponent } from "./shopping-list/shopping-list-start/shopping-list-start.component";
 import { ShoppingListViewComponent } from "./shopping-list/shopping-list-view/shopping-list-view.component";
@@ -20,8 +21,8 @@ const Route:Routes = [
     {path:'' , redirectTo:'/shop' ,pathMatch:'full'},
     {path:'shop' , component:ShopMobileComponent,children:[
        {path:'new' , component:EditComponent} ,
-       {path:':id' , component:ShopDetailComponent},
-       {path:':id/edit' , component:EditComponent}
+       {path:':id' , component:ShopDetailComponent,resolve:[ShopMobileResolver]},
+       {path:':id/edit' , component:EditComponent,resolve:[ShopMobileResolver]}
     ]},
    {path:'auth' , component:AuthComponent},
    
